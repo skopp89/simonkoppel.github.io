@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arkansas Poverty Analysis | GIS Project</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #555;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+        }
+
+        .maps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .map-card {
+            background: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid #e0e0e0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .map-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .map-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .map-caption {
+            padding: 1rem;
+            background: white;
+            font-weight: 600;
+            color: #555;
+            text-align: center;
+        }
+
+        .analysis-content {
+            background: #f8f9ff;
+            padding: 1.5rem;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+
+        .analysis-content p {
+            margin-bottom: 1rem;
+        }
+
+        .key-finding {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .methodology {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .method-card {
+            background: #f0f4ff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #d0d9ff;
+        }
+
+        .method-card h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            background: white;
+            margin-top: 2rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 0.25rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Arkansas Poverty Analysis</h1>
+        <p class="subtitle">A Geographic Information Systems Study of Poverty Distribution</p>
+        <div style="margin-top: 1rem;">
+            <span class="tag">GIS</span>
+            <span class="tag">Spatial Analysis</span>
+            <span class="tag">Census Data</span>
+            <span class="tag">Cartography</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2>Project Overview</h2>
+            <p>This project examines poverty distribution across Arkansas using multiple cartographic techniques to analyze spatial patterns at both county and census tract levels. By comparing different visualization methods, this study reveals how geographic scale and representation methods affect our understanding of poverty distribution.</p>
+        </section>
+
+        <section class="section">
+            <h2>Visualization Methods</h2>
+            <div class="methodology">
+                <div class="method-card">
+                    <h4>Proportional Symbols</h4>
+                    <p>County-level analysis using symbol size to represent the absolute number of people living in poverty.</p>
+                </div>
+                <div class="method-card">
+                    <h4>Dot Density</h4>
+                    <p>Census tract visualization where each dot represents a concentration of individuals below the poverty line.</p>
+                </div>
+                <div class="method-card">
+                    <h4>Comparative Analysis</h4>
+                    <p>Evaluation of how different scales and methods reveal distinct patterns in poverty distribution.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Maps</h2>
+            <div class="maps-grid">
+                <div class="map-card">
+                    <img src="media/image1.png" alt="Arkansas Poverty Map - Counties">
+                    <div class="map-caption">County-Level Proportional Symbols Map</div>
+                </div>
+                <div class="map-card">
+                    <img src="media/image2.png" alt="Arkansas Poverty Map - Census Tracts">
+                    <div class="map-caption">Census Tract-Level Analysis</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Key Findings</h2>
+            
+            <div class="key-finding">
+                <h3>Population Bias in County-Level Analysis</h3>
+                <p>The proportional symbols map at the county level primarily reflects population distribution rather than poverty concentration. Counties containing Arkansas's largest cities—Fayetteville in the northwest and Little Rock, the state capital—show the largest symbols due to their high total populations, not necessarily higher poverty rates.</p>
+            </div>
+
+            <div class="analysis-content">
+                <h3>The California Effect</h3>
+                <p>This phenomenon mirrors presidential election results where California yields the most Republican votes of any state despite consistently voting Democratic by large margins. Similarly, populous Arkansas counties may contain the most people in poverty while simultaneously housing the most affluent residents—a direct consequence of population size rather than poverty rate.</p>
+            </div>
+
+            <div class="key-finding">
+                <h3>Census Tract Advantages</h3>
+                <p>Census tracts, being more uniform in population size, provide clearer insights into actual poverty concentration. The census tract analysis reveals higher proportions of poverty in the eastern portion of Arkansas, demonstrated through both larger symbols and more densely concentrated dots.</p>
+            </div>
+
+            <div class="analysis-content">
+                <h3>Scale Matters</h3>
+                <p>State-level analysis without jurisdictional boundaries provides limited context and can be misleading. These visualizations would be more meaningful when comparing Arkansas to other states at a smaller scale, where relative differences become more interpretable.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Methodological Insights</h2>
+            <h3>Effective Geographic Units</h3>
+            <p>For measuring poverty distribution within Arkansas, census tracts prove more effective than counties. The more uniform population sizes across census tracts reduce population bias and allow both dot density and proportional symbol maps to accurately represent poverty concentration.</p>
+
+            <h3>Visualization Selection</h3>
+            <p>The choice between visualization methods significantly impacts interpretation. While proportional symbols effectively show absolute numbers, they can obscure rates and percentages. Combining multiple methods—such as dot density with proportional symbols—provides a more comprehensive understanding of spatial patterns.</p>
+
+            <h3>Context and Comparison</h3>
+            <p>Geographic analysis requires appropriate context. Statewide data presented without jurisdictional comparison or interstate benchmarks offers limited insight. Effective poverty mapping requires either intra-state jurisdictional analysis or inter-state comparative frameworks.</p>
+        </section>
+
+        <section class="section">
+            <h2>Technical Details</h2>
+            <p><strong>Data Source:</strong> U.S. Census Bureau</p>
+            <p><strong>Geographic Units:</strong> Counties and Census Tracts</p>
+            <p><strong>Analysis Tools:</strong> GIS Mapping Software</p>
+            <p><strong>Visualization Methods:</strong> Proportional Symbols, Dot Density</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>GIS Analysis Project | Arkansas Poverty Distribution Study</p>
+    </footer>
+</body>
+</html>

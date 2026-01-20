@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GIS projects by Simon Koppel - spatial analysis, database development, and data visualization work.">
+  <title>Projects | Simon Koppel - GIS Analyst</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">Simon Koppel</a>
+        <button class="nav__toggle" aria-label="Toggle navigation" id="navToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav__links" id="navLinks">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li><a href="projects.html" class="nav__link active">Projects</a></li>
+          <li><a href="about.html" class="nav__link">About</a></li>
+          <li><a href="references.html" class="nav__link">References</a></li>
+          <li><a href="index.html#contact" class="nav__link">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Projects Page Header -->
+  <section class="projects-page">
+    <div class="container">
+      <div class="projects-page__header">
+        <span class="section-label">Portfolio</span>
+        <h1>Projects</h1>
+        <p class="lead">
+          A collection of GIS work spanning emergency management, land use planning,
+          database development, and data visualization.
+        </p>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="projects-page__filters">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="spatial">Spatial Analysis</button>
+        <button class="filter-btn" data-filter="database">Database</button>
+        <button class="filter-btn" data-filter="visualization">Visualization</button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects__grid">
+        <!-- Emergency Management -->
+        <article class="project-card" data-category="spatial">
+          <a href="projects/emergency-management.html">
+            <div class="project-card__image">
+              <img src="assets/images/alabama-tornadoes.png" alt="Map showing tornado relief zones in Alabama">
+            </div>
+          </a>
+          <div class="project-card__content">
+            <span class="project-card__category">Emergency Management</span>
+            <h3 class="project-card__title">
+              <a href="projects/emergency-management.html">Alabama Tornado Relief Analysis</a>
+            </h3>
+            <p class="project-card__description">
+              Identified high-need zones for emergency relief centers using buffer analysis
+              around 2011 tornado paths, enabling efficient allocation of disaster resources.
+            </p>
+            <div class="project-card__tags">
+              <span class="project-card__tag">ArcGIS Pro</span>
+              <span class="project-card__tag">Buffer Analysis</span>
+              <span class="project-card__tag">Emergency Response</span>
+            </div>
+            <a href="projects/emergency-management.html" class="project-card__link">
+              View Project
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Land Use Management -->
+        <article class="project-card" data-category="spatial">
+          <a href="projects/land-use-management.html">
+            <div class="project-card__image">
+              <img src="assets/images/napa-vineyards.png" alt="Map showing suitable vineyard sites in Napa County">
+            </div>
+          </a>
+          <div class="project-card__content">
+            <span class="project-card__category">Land Use Management</span>
+            <h3 class="project-card__title">
+              <a href="projects/land-use-management.html">Napa County Vineyard Site Selection</a>
+            </h3>
+            <p class="project-card__description">
+              Applied raster analysis to identify 1,270+ acres of optimal vineyard locations
+              based on floodplain, slope, wind, and soil conditions.
+            </p>
+            <div class="project-card__tags">
+              <span class="project-card__tag">ArcGIS Pro</span>
+              <span class="project-card__tag">Raster Analysis</span>
+              <span class="project-card__tag">Site Suitability</span>
+            </div>
+            <a href="projects/land-use-management.html" class="project-card__link">
+              View Project
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Voter Registration Database -->
+        <article class="project-card" data-category="database">
+          <a href="projects/voter-registration.html">
+            <div class="project-card__image">
+              <img src="assets/images/voter-registration.png" alt="Voter registration database visualization">
+            </div>
+          </a>
+          <div class="project-card__content">
+            <span class="project-card__category">Database Development</span>
+            <h3 class="project-card__title">
+              <a href="projects/voter-registration.html">Fitchburg Voter Registration Database</a>
+            </h3>
+            <p class="project-card__description">
+              Built a geodatabase using SQL to support targeted outreach, converting
+              demographic data into actionable insights for community engagement.
+            </p>
+            <div class="project-card__tags">
+              <span class="project-card__tag">SQL</span>
+              <span class="project-card__tag">Geodatabase</span>
+              <span class="project-card__tag">Data Normalization</span>
+            </div>
+            <a href="projects/voter-registration.html" class="project-card__link">
+              View Project
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Virginia Elections -->
+        <article class="project-card" data-category="visualization">
+          <a href="projects/virginia-elections.html">
+            <div class="project-card__image">
+              <img src="assets/images/virginia-elections.png" alt="Virginia election results visualization">
+            </div>
+          </a>
+          <div class="project-card__content">
+            <span class="project-card__category">Data Visualization</span>
+            <h3 class="project-card__title">
+              <a href="projects/virginia-elections.html">Virginia Presidential Election Analysis</a>
+            </h3>
+            <p class="project-card__description">
+              Created Tableau visualizations correlating educational attainment with
+              voting patterns, revealing political shifts in Northern Virginia.
+            </p>
+            <div class="project-card__tags">
+              <span class="project-card__tag">Tableau</span>
+              <span class="project-card__tag">Data Analysis</span>
+              <span class="project-card__tag">Visualization</span>
+            </div>
+            <a href="projects/virginia-elections.html" class="project-card__link">
+              View Project
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Historical Database -->
+        <article class="project-card" data-category="database">
+          <a href="projects/charlottesville-historical.html">
+            <div class="project-card__image">
+              <img src="assets/images/charlottesville.png" alt="Historical database for Charlottesville">
+            </div>
+          </a>
+          <div class="project-card__content">
+            <span class="project-card__category">Historical Database</span>
+            <h3 class="project-card__title">
+              <a href="projects/charlottesville-historical.html">Charlottesville Historical Database</a>
+            </h3>
+            <p class="project-card__description">
+              Collaborated with the Albemarle Charlottesville Historical Society to develop
+              a database analyzing land use changes, georeferencing a 1920 Sanborn map.
+            </p>
+            <div class="project-card__tags">
+              <span class="project-card__tag">Georeferencing</span>
+              <span class="project-card__tag">SQL</span>
+              <span class="project-card__tag">Shapefile Creation</span>
+            </div>
+            <a href="projects/charlottesville-historical.html" class="project-card__link">
+              View Project
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Economic Development -->
+        <article class="project-card" data-category="spatial">
+          <a href="projects/kalispell-development.html">
+            <div class="project-card__image">
+              <img src="assets/images/kalispell.png" alt="Economic development zones in Kalispell">
+            </div>
+          </a>
+          <div class="project-card__content">
+            <span class="project-card__category">Economic Development</span>
+            <h3 class="project-card__title">
+              <a href="projects/kalispell-development.html">Kalispell Regional Planning</a>
+            </h3>
+            <p class="project-card__description">
+              Developed thematic maps delineating zones and identifying key economic
+              development sites along major highways for targeted regional planning.
+            </p>
+            <div class="project-card__tags">
+              <span class="project-card__tag">ArcGIS Pro</span>
+              <span class="project-card__tag">Thematic Mapping</span>
+              <span class="project-card__tag">Zoning</span>
+            </div>
+            <a href="projects/kalispell-development.html" class="project-card__link">
+              View Project
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Conservation Areas -->
+        <article class="project-card" data-category="spatial">
+          <a href="projects/centre-county-conservation.html">
+            <div class="project-card__image">
+              <img src="assets/images/conservation.png" alt="Conservation areas in Centre County">
+            </div>
+          </a>
+          <div class="project-card__content">
+            <span class="project-card__category">Environmental Planning</span>
+            <h3 class="project-card__title">
+              <a href="projects/centre-county-conservation.html">Centre County Conservation Analysis</a>
+            </h3>
+            <p class="project-card__description">
+              Identified suitable conservation areas using multi-criteria analysis including
+              species diversity, habitat potential, and terrain characteristics.
+            </p>
+            <div class="project-card__tags">
+              <span class="project-card__tag">Raster Analysis</span>
+              <span class="project-card__tag">Buffering</span>
+              <span class="project-card__tag">Conservation</span>
+            </div>
+            <a href="projects/centre-county-conservation.html" class="project-card__link">
+              View Project
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Poverty Mapping -->
+        <article class="project-card" data-category="visualization">
+          <a href="projects/arkansas-poverty.html">
+            <div class="project-card__image">
+              <img src="assets/images/arkansas-poverty.png" alt="Poverty mapping in Arkansas">
+            </div>
+          </a>
+          <div class="project-card__content">
+            <span class="project-card__category">Data Visualization</span>
+            <h3 class="project-card__title">
+              <a href="projects/arkansas-poverty.html">Arkansas Poverty Mapping</a>
+            </h3>
+            <p class="project-card__description">
+              Designed proportional symbol and dot density maps using ACS Census Data
+              to identify counties with highest poverty rates for policy guidance.
+            </p>
+            <div class="project-card__tags">
+              <span class="project-card__tag">Census Data</span>
+              <span class="project-card__tag">Dot Density</span>
+              <span class="project-card__tag">Policy Analysis</span>
+            </div>
+            <a href="projects/arkansas-poverty.html" class="project-card__link">
+              View Project
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Simon Koppel. Built with purpose.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

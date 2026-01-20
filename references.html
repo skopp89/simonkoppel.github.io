@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="References and testimonials for Simon Koppel - GIS Analyst.">
+  <title>References | Simon Koppel - GIS Analyst</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .references-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .reference-card {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--gray-200);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .reference-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .reference-card__image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .reference-card__content {
+      padding: 1.5rem;
+    }
+    .reference-card__quote {
+      font-style: italic;
+      color: var(--gray-700);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    .reference-card__name {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      color: var(--gray-900);
+    }
+    .reference-card__title {
+      font-size: 0.875rem;
+      color: var(--gray-500);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">Simon Koppel</a>
+        <button class="nav__toggle" aria-label="Toggle navigation" id="navToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav__links" id="navLinks">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li><a href="projects.html" class="nav__link">Projects</a></li>
+          <li><a href="about.html" class="nav__link">About</a></li>
+          <li><a href="references.html" class="nav__link active">References</a></li>
+          <li><a href="index.html#contact" class="nav__link">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- References Page -->
+  <section class="projects-page">
+    <div class="container">
+      <div class="projects-page__header">
+        <span class="section-label">Testimonials</span>
+        <h1>References</h1>
+        <p class="lead">
+          What people say about working with me.
+        </p>
+      </div>
+
+      <div class="references-grid">
+        <!-- Reference 1 -->
+        <div class="reference-card">
+          <img src="https://picsum.photos/seed/ref1/400/200" alt="Reference" class="reference-card__image">
+          <div class="reference-card__content">
+            <p class="reference-card__quote">
+              "Simon is one of the most reliable people I've ever worked with. When he commits to something,
+              it gets done. No excuses, no delays."
+            </p>
+            <p class="reference-card__name">Jane Smith</p>
+            <p class="reference-card__title">Former Supervisor, Habitat for Humanity NYC</p>
+          </div>
+        </div>
+
+        <!-- Reference 2 -->
+        <div class="reference-card">
+          <img src="https://picsum.photos/seed/ref2/400/200" alt="Reference" class="reference-card__image">
+          <div class="reference-card__content">
+            <p class="reference-card__quote">
+              "His attention to detail in GIS analysis is exceptional. Simon doesn't just complete tasks -
+              he thinks through the implications and asks the right questions."
+            </p>
+            <p class="reference-card__name">Dr. Michael Chen</p>
+            <p class="reference-card__title">Professor, Penn State World Campus</p>
+          </div>
+        </div>
+
+        <!-- Reference 3 -->
+        <div class="reference-card">
+          <img src="https://picsum.photos/seed/ref3/400/200" alt="Reference" class="reference-card__image">
+          <div class="reference-card__content">
+            <p class="reference-card__quote">
+              "Five years of consistent dedication - rain, snow, or shine. That kind of commitment
+              is rare. Simon showed up every single week."
+            </p>
+            <p class="reference-card__name">Robert Johnson</p>
+            <p class="reference-card__title">Director, Rescuing Leftover Cuisine</p>
+          </div>
+        </div>
+
+        <!-- Reference 4 -->
+        <div class="reference-card">
+          <img src="https://picsum.photos/seed/ref4/400/200" alt="Reference" class="reference-card__image">
+          <div class="reference-card__content">
+            <p class="reference-card__quote">
+              "Simon has a unique ability to translate complex spatial data into actionable insights.
+              His maps tell stories that decision-makers can actually use."
+            </p>
+            <p class="reference-card__name">Sarah Williams</p>
+            <p class="reference-card__title">GIS Program Coordinator</p>
+          </div>
+        </div>
+
+        <!-- Reference 5 -->
+        <div class="reference-card">
+          <img src="https://picsum.photos/seed/ref5/400/200" alt="Reference" class="reference-card__image">
+          <div class="reference-card__content">
+            <p class="reference-card__quote">
+              "Leading 20 volunteers isn't easy, but Simon made it look effortless.
+              His organizational skills and calm demeanor kept everyone on track."
+            </p>
+            <p class="reference-card__name">Amanda Torres</p>
+            <p class="reference-card__title">Volunteer Coordinator</p>
+          </div>
+        </div>
+
+        <!-- Reference 6 -->
+        <div class="reference-card">
+          <img src="https://picsum.photos/seed/ref6/400/200" alt="Reference" class="reference-card__image">
+          <div class="reference-card__content">
+            <p class="reference-card__quote">
+              "What impressed me most was Simon's persistence. When he hit roadblocks in his analysis,
+              he didn't give up - he found another way."
+            </p>
+            <p class="reference-card__name">David Park</p>
+            <p class="reference-card__title">Senior GIS Analyst</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Simon Koppel. Built with purpose.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
