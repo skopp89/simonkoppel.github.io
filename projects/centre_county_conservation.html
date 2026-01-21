@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centre County Conservation Areas | Raster Analysis Project</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        header h2 {
+            font-size: 1.3em;
+            opacity: 0.9;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1em;
+            opacity: 0.8;
+            font-style: italic;
+        }
+        
+        .hero-image {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            margin: 30px auto 0;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section h2 {
+            color: #1e3c72;
+            margin-bottom: 20px;
+            font-size: 2em;
+            border-left: 5px solid #2a5298;
+            padding-left: 15px;
+        }
+        
+        .section h3 {
+            color: #2c5364;
+            margin: 25px 0 15px 0;
+            font-size: 1.5em;
+        }
+        
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+            line-height: 1.8;
+        }
+        
+        .objectives {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .objectives h3 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+        }
+        
+        .objectives p {
+            color: #2c3e50;
+        }
+        
+        .criteria-box {
+            background: #fff;
+            border: 2px solid #2a5298;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .criteria-box h4 {
+            color: #1e3c72;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+        }
+        
+        .criteria-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .criteria-list li {
+            padding: 8px 0 8px 25px;
+            position: relative;
+            color: #2c3e50;
+        }
+        
+        .criteria-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .results-box {
+            background: #e8f5e9;
+            border-left: 4px solid #27ae60;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        
+        .results-box strong {
+            color: #1b5e20;
+        }
+        
+        .map-image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            margin: 20px 0;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .skill-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-card h4 {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .creativity {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        
+        .creativity h3 {
+            color: #d84315;
+            margin-bottom: 15px;
+        }
+        
+        .creativity p {
+            color: #4e342e;
+        }
+        
+        .election-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .election-map {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .election-map img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        
+        .election-map p {
+            margin-top: 10px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .citation {
+            background: #eceff1;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 40px;
+            font-size: 0.9em;
+        }
+        
+        .citation h3 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+        }
+        
+        .citation p {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        .citation a {
+            color: #2a5298;
+            text-decoration: none;
+        }
+        
+        .citation a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            background: #0f2027;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .election-comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Conservation Area Site Selection</h1>
+            <h2>Centre County, Pennsylvania</h2>
+            <p>A Comprehensive Raster Analysis Using ArcGIS Pro</p>
+            <img src="../assets/images/CompleteAnalysis.png" alt="Conservation areas in Centre County" class="hero-image">
+        </header>
+        
+        <div class="content">
+            <div class="section objectives">
+                <h3>Project Objectives</h3>
+                <p>This final project demonstrates advanced GIS skills developed over ten weeks of coursework in Geography 483. The analysis utilizes raster-based techniques to identify optimal conservation areas in Centre County, Pennsylvania, based on multiple environmental and accessibility criteria.</p>
+            </div>
+            
+            <div class="section">
+                <h2>Skills Demonstrated</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h4>Attribute Queries</h4>
+                        <p>Selecting features based on specific criteria</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Buffering Features</h4>
+                        <p>Multi-distance buffer analysis</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Field Calculations</h4>
+                        <p>Computing derived attributes</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Raster Analysis</h4>
+                        <p>Hillshade, slope, and suitability modeling</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Spatial Joins</h4>
+                        <p>Combining multiple datasets</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Map Layout Design</h4>
+                        <p>Professional cartographic output</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Methodology & Analysis</h2>
+                
+                <h3>Step 1: Species Richness Assessment</h3>
+                <p>The analysis began by joining the species-rich table with the study areas layer. A new field was calculated to determine the total number of mammalian and bird species in each area.</p>
+                
+                <img src="../assets/images/joinspecies.png" alt="Species Join Table" class="map-image">
+                
+                <div class="criteria-box">
+                    <h4>Criteria 1: Biodiversity Threshold</h4>
+                    <ul class="criteria-list">
+                        <li>Study areas must contain more than 70 mammalian and bird species</li>
+                    </ul>
+                </div>
+                
+                <div class="results-box">
+                    <strong>Result:</strong> 48 study areas met the species richness criteria
+                </div>
+                
+                <img src="../assets/images/studyareanarrow.png" alt="Study Areas After Species Filter" class="map-image">
+                
+                <h3>Step 2: Road Density Analysis</h3>
+                <p>To minimize human disturbance, roads were buffered at varying distances based on road type: interstates at 100 meters, highways at 50 meters, and local roads at 20 meters. The percentage of each study area covered by buffered roads was then calculated by subtracting the shaded area from the total area and multiplying by 100.</p>
+                
+                <div class="criteria-box">
+                    <h4>Criteria 2: Road Impact Limitation</h4>
+                    <ul class="criteria-list">
+                        <li>Interstates: 100-meter buffer</li>
+                        <li>Highways: 50-meter buffer</li>
+                        <li>Local roads: 20-meter buffer</li>
+                        <li>Total buffered road area must be less than 10% of study area</li>
+                    </ul>
+                </div>
+                
+                <img src="../assets/images/Buffer.png" alt="Road Buffer Analysis" class="map-image">
+                
+                <p>A Union operation was performed to combine road buffer areas with the species-rich study areas, creating an integrated dataset for analysis. The Union tool allowed the features and attributes from both layers to be merged into a single output layer.</p>
+                
+                <img src="../assets/images/Union.png" alt="Union Operation Results" class="map-image">
+                
+                <div class="results-box">
+                    <strong>Result:</strong> 48 study areas remained after applying the road density threshold
+                </div>
+                
+                <img src="../assets/images/10percentcriteria.png" alt="Areas Meeting 10% Road Criteria" class="map-image">
+                
+                <h3>Step 3: Raster Reclassification</h3>
+                <p>The first raster analysis identified areas meeting the road percentage criteria. Attributes were reclassified into binary categories: areas with less than 10% road coverage received a value of 1 (suitable), while areas exceeding this threshold received a value of 0 (unsuitable).</p>
+                
+                <img src="../assets/images/RasterAnalysis.png" alt="Road Percentage Raster Analysis" class="map-image">
+                
+                <h3>Step 4: Land Ownership Analysis</h3>
+                <p>Additional queries were performed to filter areas based on land ownership. A raster analysis was conducted to distinguish between publicly and privately owned land.</p>
+                
+                <div class="criteria-box">
+                    <h4>Criteria 3: Land Ownership</h4>
+                    <ul class="criteria-list">
+                        <li>Areas must be publicly owned (value = 1)</li>
+                        <li>Privately owned land excluded from consideration (value = 0)</li>
+                    </ul>
+                </div>
+                
+                <img src="../assets/images/Rastertwo.png" alt="Land Ownership Raster Analysis" class="map-image">
+                
+                <h3>Step 5: Environmental Suitability Analysis</h3>
+                <p>The final raster analysis incorporated additional environmental factors including forest coverage, elevation, and solar exposure. Hillshade values were calculated to measure areas with optimal sunlight exposure and lower elevations, both critical factors for wildlife habitat suitability. The Hillshade function is an integral component of raster analysis, particularly for projects involving natural resources that depend on adequate sunlight and favorable topography.</p>
+                
+                <p>One particularly valuable technique employed in this analysis was the Slope Analysis method, which measures the gradient of raster cells. This capability proved extremely useful given that raster analysis frequently involves elevation-based assessments.</p>
+                
+                <img src="../assets/images/CompleteAnalysis.png" alt="Complete Multi-Criteria Analysis" class="map-image">
+                
+                <div class="results-box">
+                    <strong>Final Result:</strong> Approximately 91,632 raster cells met all conservation area criteria
+                </div>
+                
+                <img src="../assets/images/AnalysisFinal.png" alt="Final Suitability Model" class="map-image">
+            </div>
+            
+            <div class="section">
+                <h2>Conclusions</h2>
+                <p>Upon completion of the analysis of animal conservation areas in Centre County, Pennsylvania, opportunities for conservation areas were identified throughout the county. The raster analysis approach was essential for this project because the study measured continuous attributes such as forest coverage and road density. Similar to the previous vineyard site selection project, hillshade values were instrumental in identifying areas with appropriate sunlight exposure and lower elevations, both critical for thriving natural resources.</p>
+            </div>
+            
+            <div class="creativity">
+                <h3>Political Geography Perspective: Centre County's Electoral Shift</h3>
+                <p>Centre County presents a fascinating case study in electoral geography. The county last voted for a Republican presidential candidate in 2004 when George W. Bush carried the county. Since then, Democrats have won every presidential election in Centre County, representing a significant political realignment.</p>
+                
+                <div class="election-comparison">
+                    <div class="election-map">
+                        <img src="../assets/images/BushMap.png" alt="2004 Presidential Election Results">
+                        <p>2004 Election - George W. Bush Victory</p>
+                    </div>
+                    <div class="election-map">
+                        <img src="../assets/images/TrumpMap.png" alt="2020 Presidential Election Results">
+                        <p>2020 Election - Joe Biden Victory</p>
+                    </div>
+                </div>
+                
+                <p>This transformation is particularly notable because Centre County is surrounded by heavily Republican counties, making it a Democratic island in a Republican region. The shift perfectly illustrates the broader national trend of college-educated voters increasingly supporting Democratic candidates. Penn State University's presence in the county is likely a key factor in this political realignment—without the university, Centre County would very likely remain Republican-leaning.</p>
+            </div>
+            
+            <div class="citation">
+                <h3>Sources</h3>
+                <p>Pro.arcgis.com (N.D.). Union (Analysis). Retrieved December 13th, 2023, from <a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/union.htm" target="_blank">Union (Analysis)—ArcGIS Pro | Documentation</a></p>
+                
+                <p>Image.lasermagic.net (N.D.). Penn State Nittany Lions. Retrieved December 13th, 2023</p>
+                
+                <p>Pro.arcgis.com (N.D.). Hillshade Function. Retrieved December 13th, 2023, from <a href="https://pro.arcgis.com/en/pro-app/latest/help/analysis/raster-functions/hillshade-function.htm" target="_blank">Hillshade function—ArcGIS Pro | Documentation</a></p>
+                
+                <p>Pro.Arcgis.com (N.D.). Slope (Spatial Analyst). Retrieved December 13th, 2023, from <a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/slope.htm" target="_blank">Slope (Spatial Analyst)—ArcGIS Pro | Documentation</a></p>
+                
+                <p>Uselectionatlas.org (N.D.). United States Presidential Election Results. Retrieved December 13th, 2023, from <a href="https://uselectionatlas.org" target="_blank">Dave Leip's Atlas of U.S. Presidential Elections</a></p>
+                
+                <p>Wikipedia.org (N.D.). 2004 United States Election in Pennsylvania. Retrieved December 13th, 2023, from <a href="https://en.wikipedia.org/wiki/2004_United_States_presidential_election_in_Pennsylvania" target="_blank">2004 United States presidential election in Pennsylvania - Wikipedia</a></p>
+                
+                <p>Wikipedia.org (N.D.). 2020 United States Presidential Election in Pennsylvania. Retrieved December 13th, 2023, from <a href="https://en.wikipedia.org/wiki/2020_United_States_presidential_election_in_Pennsylvania" target="_blank">2020 United States presidential election in Pennsylvania - Wikipedia</a></p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Geography 483 Final Project | December 2023</p>
+            <p>Simon Koppel</p>
+        </footer>
+    </div>
+</body>
+</html>
