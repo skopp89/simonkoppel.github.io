@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fitchburg, MA Whig Party Geodatabase & Outreach Analysis | Simon Koppel</title>
+  <meta name="description" content="Geodatabase + SQL cleaning/normalization for voter registration and party/ethnicity analysis in Fitchburg, MA, with outreach recommendations." />
+  <style>
+    :root { --max: 980px; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; color: #111; line-height: 1.6; }
+    header { padding: 56px 18px 18px; background: #f6f7f9; border-bottom: 1px solid #e7e8ec; }
+    main { max-width: var(--max); margin: 0 auto; padding: 22px 18px 64px; }
+    h1 { line-height: 1.15; margin: 0 0 10px; font-size: clamp(28px, 3.4vw, 40px); }
+    h2 { margin-top: 34px; }
+    .sub { max-width: 75ch; margin: 0; color: #333; }
+    .meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .pill { font-size: 14px; padding: 6px 10px; border: 1px solid #d9dce3; border-radius: 999px; background: white; }
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; margin-top: 16px; }
+    .card { border: 1px solid #e7e8ec; border-radius: 14px; padding: 16px; background: #fff; box-shadow: 0 1px 0 rgba(0,0,0,.04); }
+    .span-6 { grid-column: span 6; }
+    .span-12 { grid-column: span 12; }
+    @media (max-width: 760px){ .span-6 { grid-column: span 12; } header { padding-top: 36px; } }
+    figure { margin: 0; }
+    img { width: 100%; height: auto; border-radius: 12px; border: 1px solid #eceef3; }
+    figcaption { font-size: 14px; color: #444; margin-top: 8px; }
+    ul { margin: 10px 0 0 18px; }
+    a { color: inherit; text-decoration: underline; }
+    .btnrow { display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:12px; border:1px solid #d9dce3; background:#fff; text-decoration:none; }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div style="max-width:980px;margin:0 auto;">
+      <h1>Fitchburg, MA Whig Party Geodatabase & Outreach Analysis</h1>
+      <p class="sub">
+        I developed a comprehensive geodatabase to streamline voter registration data and inform outreach strategy.
+        Using SQL, I converted ethnicity and party affiliation attributes into binary formats, applied normalization to
+        remove duplicates, and produced census-block maps to identify registration gaps and target communities.
+      </p>
+
+      <div class="meta">
+        <span class="pill">Tools: SQL • Geodatabase Design • GIS Mapping</span>
+        <span class="pill">Geography 484 (Lesson 6)</span>
+        <span class="pill">Location: Fitchburg, Massachusetts</span>
+      </div>
+
+      <div class="btnrow">
+        <!-- Update these links if you add them -->
+        <a class="btn" href="../index.html">← Back to Portfolio</a>
+        <!-- Optional: link to a PDF you upload into /projects/assets/ -->
+        <!-- <a class="btn" href="./assets/SKoppel_GeoAnalysis.pdf" target="_blank" rel="noopener">View PDF</a> -->
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="grid">
+      <div class="card span-12">
+        <h2>Project Overview</h2>
+        <p>
+          This project combines database cleaning and spatial analysis to support an evidence-based voter outreach plan.
+          I mapped voter registration and party affiliation by census block, then compared those patterns with Hispanic
+          registration and Hispanic population share to highlight where multilingual engagement would be most effective.
+        </p>
+        <ul>
+          <li><strong>Goal:</strong> Improve the reliability and usability of voter registration data for outreach planning.</li>
+          <li><strong>Database work:</strong> SQL transformations (binary encoding) + normalization to reduce duplicates.</li>
+          <li><strong>Spatial outputs:</strong> Thematic maps and proportional symbol mapping by census blocks.</li>
+        </ul>
+      </div>
+
+      <div class="card span-6">
+        <h2>Key Maps (from the analysis)</h2>
+        <ul>
+          <li><strong>Total registration by census block</strong> (PDF p.1)</li>
+          <li><strong>Party affiliations by census block</strong> (PDF p.2)</li>
+          <li><strong>Hispanic voter registration</strong> (PDF p.3)</li>
+          <li><strong>Percent Hispanic population</strong> (PDF p.4)</li>
+        </ul>
+        <p style="margin-top:10px;">
+          These maps were used together to identify where registration lagged and where outreach could be better tailored.
+        </p>
+      </div>
+
+      <div class="card span-6">
+        <h2>Findings & Strategy</h2>
+        <ul>
+          <li>
+            <strong>Registration gaps:</strong> Larger rural blocks showed weaker registration, suggesting outreach should
+            include travel/transportation support to reach more distant areas. (PDF p.3)
+          </li>
+          <li>
+            <strong>Competitive blocks:</strong> Party affiliation patterns indicated where the Whigs could gain advantage
+            by focusing on low-turnout or under-registered blocks with persuadable voters. (PDF p.3)
+          </li>
+          <li>
+            <strong>Spanish-language outreach:</strong> Based on Hispanic registration and population distribution,
+            the strategy recommended multilingual (Spanish) flyers to engage Fitchburg’s growing Hispanic community. (PDF p.4)
+          </li>
+        </ul>
+      </div>
+
+      <!-- OPTIONAL: Add your own exported images here.
+           Put image files into: projects/assets/
+           Then update the src paths below. -->
+      <div class="card span-6">
+        <figure>
+          <img src="./assets/fitchburg-total-registration.png" alt="Total registration by census block (exported map)" />
+          <figcaption>Total registration by census block (exported). Source map shown in the PDF (p.1).</figcaption>
+        </figure>
+      </div>
+
+      <div class="card span-6">
+        <figure>
+          <img src="./assets/fitchburg-party-affiliation.png" alt="Party affiliations by census block (exported map)" />
+          <figcaption>Party affiliations by census block (exported). Source map shown in the PDF (p.2).</figcaption>
+        </figure>
+      </div>
+
+      <div class="card span-6">
+        <figure>
+          <img src="./assets/fitchburg-hispanic-registration.png" alt="Hispanic voter registration by census block (exported map)" />
+          <figcaption>Hispanic voter registration by census block (exported). Source map shown in the PDF (p.3).</figcaption>
+        </figure>
+      </div>
+
+      <div class="card span-6">
+        <figure>
+          <img src="./assets/fitchburg-percent-hispanic.png" alt="Percent Hispanic population by census block (exported map)" />
+          <figcaption>Percent Hispanic population by census block (exported). Source map shown in the PDF (p.4).</figcaption>
+        </figure>
+      </div>
+
+      <div class="card span-12">
+        <h2>What I’d Improve Next</h2>
+        <ul>
+          <li>Add a repeatable ETL script (SQL + documentation) so the geodatabase can be refreshed as new voter files arrive.</li>
+          <li>Publish an interactive web map (ArcGIS Online / Leaflet) for filtering by party/ethnicity/turnout.</li>
+          <li>Track outreach results by block to evaluate which tactics increase registration over time.</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr style="border:none;border-top:1px solid #eceef3;margin:30px 0;">
+
+    <section>
+      <p style="color:#444;font-size:14px;">
+        Evidence base: Maps and written recommendations summarized from the course deliverable PDF. :contentReference[oaicite:1]{index=1}
+      </p>
+    </section>
+  </main>
+</body>
+</html>
