@@ -1,1 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <meta
+    name="description"
+    content="Spatial analysis of demographic characteristics and Democratic vote shifts in Arizona using ArcGIS Pro, GeoDa, Moran's I, and LISA."
+  >
+
+  <title>Arizona Electoral & Demographic Spatial Analysis | Simon Koppel</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav__inner">
+
+        <a href="../index.html" class="nav__logo">Simon Koppel</a>
+
+        <button
+          class="nav__toggle"
+          aria-label="Toggle navigation"
+          id="navToggle"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav__links" id="navLinks">
+          <li><a href="../index.html" class="nav__link">Home</a></li>
+          <li><a href="../projects.html" class="nav__link active">Projects</a></li>
+          <li><a href="../about.html" class="nav__link">About</a></li>
+          <li><a href="../index.html#contact" class="nav__link">Contact</a></li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Project Hero -->
+  <section class="project-hero">
+    <div class="container container--narrow">
+
+      <p class="project-hero__breadcrumb">
+        <a href="../projects.html">Projects</a> / Spatial Analysis
+      </p>
+
+      <span class="project-hero__category">
+        Spatial Analysis
+      </span>
+
+      <h1 class="project-hero__title">
+        Arizona Electoral & Demographic Spatial Analysis
+      </h1>
+
+      <div class="project-hero__meta">
+
+        <div class="project-hero__meta-item">
+          <span class="project-hero__meta-label">Tools</span>
+          <span class="project-hero__meta-value">
+            ArcGIS Pro, GeoDa
+          </span>
+        </div>
+
+        <div class="project-hero__meta-item">
+          <span class="project-hero__meta-label">Techniques</span>
+          <span class="project-hero__meta-value">
+            Moran's I, LISA, Bivariate Spatial Analysis
+          </span>
+        </div>
+
+        <div class="project-hero__meta-item">
+          <span class="project-hero__meta-label">Focus</span>
+          <span class="project-hero__meta-value">
+            Election Geography & Demographics
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Project Content -->
+  <section class="project-content">
+    <div class="container container--narrow">
+
+
+      <!-- Challenge -->
+      <h2>The Challenge</h2>
+
+      <p>
+        Arizona has undergone substantial demographic and political change in
+        recent years. This project examined whether changes in Democratic
+        support between the <strong>2018 U.S. Senate election</strong> and
+        <strong>2020 Presidential election</strong> formed identifiable
+        geographic patterns and whether those changes were spatially related
+        to demographic characteristics.
+      </p>
+
+      <p>
+        The analysis focused on three demographic variables:
+        <strong>educational attainment, Hispanic population percentage,
+        and median household income</strong>. Election results were combined
+        with demographic data from the 2021 American Community Survey to
+        investigate how electoral and socioeconomic patterns varied across
+        Arizona.
+      </p>
+
+      <!-- Main Vote Shift Map -->
+      <div class="project-content__image">
+        <img
+          src="../assets/images/arizona-vote-shift.png"
+          alt="Map showing change in Democratic vote share across Arizona precincts between the 2018 Senate and 2020 Presidential elections"
+        >
+        <p style="font-size: 0.9rem; margin-top: 0.5rem;">
+          <em>
+            Change in Democratic vote share by Arizona precinct between the
+            2018 U.S. Senate and 2020 Presidential elections.
+          </em>
+        </p>
+      </div>
+
+
+      <!-- Approach -->
+      <h2>The Approach</h2>
+
+      <p>
+        Election results were joined to Arizona precinct boundaries in
+        <strong>ArcGIS Pro</strong>. Democratic vote shift was calculated by
+        comparing Democratic margins between the two elections. Positive
+        values represented movement toward the Democratic candidate, while
+        negative values indicated movement toward the Republican candidate.
+      </p>
+
+      <p>
+        Because American Community Survey demographic data were available at
+        the census block-group level rather than the election-precinct level,
+        ArcGIS Pro's <strong>Apportion Polygon</strong> tool was used to
+        estimate demographic characteristics within precinct boundaries.
+      </p>
+
+      <p>
+        Spatial statistical analysis was then conducted in
+        <strong>GeoDa</strong> using Queen contiguity spatial weights.
+        The analysis incorporated:
+      </p>
+
+      <ul>
+        <li>
+          <strong>Global Moran's I</strong> to measure overall spatial
+          autocorrelation
+        </li>
+
+        <li>
+          <strong>Local Indicators of Spatial Association (LISA)</strong>
+          to identify statistically significant local clusters
+        </li>
+
+        <li>
+          <strong>Bivariate Moran's I</strong> to evaluate spatial
+          relationships between electoral change and demographic variables
+        </li>
+
+        <li>
+          <strong>Bivariate LISA</strong> to identify localized spatial
+          relationships
+        </li>
+
+        <li>
+          <strong>999 random permutations</strong> to evaluate statistical
+          significance
+        </li>
+      </ul>
+
+
+      <!-- Electoral Change -->
+      <h2>Geographic Patterns of Electoral Change</h2>
+
+      <p>
+        Democratic vote shifts were not distributed uniformly across Arizona.
+        Democratic support remained concentrated around metropolitan Phoenix
+        and Tucson, while Republican candidates continued to perform strongly
+        across much of rural Arizona. Some of the largest Democratic gains
+        occurred within suburban Maricopa County.
+      </p>
+
+      <p>
+        Democratic vote shift produced a
+        <strong>Global Moran's I of 0.405</strong>, indicating moderate
+        positive spatial autocorrelation. Precincts experiencing similar
+        changes in Democratic support therefore tended to occur near one
+        another rather than being randomly distributed across the state.
+      </p>
+
+      <!-- LISA Map -->
+      <div class="project-content__image">
+        <img
+          src="../assets/images/arizona-vote-lisa.png"
+          alt="LISA cluster map showing geographic clusters of Democratic vote shifts in Arizona"
+        >
+        <p style="font-size: 0.9rem; margin-top: 0.5rem;">
+          <em>
+            LISA cluster analysis identifying statistically significant
+            geographic concentrations of Democratic vote shifts.
+          </em>
+        </p>
+      </div>
+
+
+      <!-- Demographics -->
+      <h2>Demographic Spatial Patterns</h2>
+
+      <h3>Hispanic Population</h3>
+
+      <p>
+        Hispanic population exhibited the strongest overall geographic
+        clustering among the demographic variables, with a
+        <strong>Global Moran's I of 0.784</strong>. Higher Hispanic
+        population percentages were concentrated along Arizona's southern
+        border and within portions of metropolitan Phoenix and Tucson.
+      </p>
+
+      <div class="project-content__image">
+        <img
+          src="../assets/images/arizona-hispanic-population.png"
+          alt="Map showing Hispanic population percentage across Arizona census block groups"
+        >
+      </div>
+
+
+      <h3>Educational Attainment</h3>
+
+      <p>
+        Educational attainment also demonstrated very strong spatial
+        clustering, with a <strong>Global Moran's I of 0.750</strong>.
+        Higher percentages of adults holding bachelor's degrees were
+        concentrated primarily within metropolitan Phoenix and Tucson,
+        while lower educational attainment predominated across much of
+        rural Arizona.
+      </p>
+
+      <div class="project-content__image">
+        <img
+          src="../assets/images/arizona-education.png"
+          alt="Map showing the percentage of Arizona adults with a bachelor's degree or higher"
+        >
+      </div>
+
+
+      <h3>Median Household Income</h3>
+
+      <p>
+        Median household income exhibited moderate positive spatial
+        autocorrelation, with a <strong>Global Moran's I of 0.415</strong>.
+        Higher-income areas were concentrated primarily within metropolitan
+        Phoenix and portions of Tucson.
+      </p>
+
+
+      <!-- Bivariate -->
+      <h2>Connecting Demographics and Electoral Change</h2>
+
+      <p>
+        The final stage of the project used
+        <strong>Bivariate Moran's I</strong> to determine whether changes in
+        Democratic support were spatially associated with demographic
+        characteristics in neighboring precincts.
+      </p>
+
+      <ul>
+        <li>
+          <strong>Educational Attainment: +0.288</strong> —
+          strongest positive spatial relationship with Democratic vote shifts
+        </li>
+
+        <li>
+          <strong>Median Household Income: +0.124</strong> —
+          weaker positive spatial relationship
+        </li>
+
+        <li>
+          <strong>Hispanic Population: −0.208</strong> —
+          negative spatial relationship
+        </li>
+      </ul>
+
+      <p>
+        All three bivariate relationships were statistically significant
+        with permutation p-values of <strong>0.001</strong>.
+      </p>
+
+      <p>
+        Educational attainment emerged as the demographic characteristic
+        most strongly associated with the geography of Democratic vote gains.
+        Precincts experiencing larger Democratic shifts tended to be located
+        near precincts with higher levels of bachelor's degree attainment.
+        Median household income exhibited a weaker positive relationship,
+        while Hispanic population exhibited a statistically significant
+        negative spatial relationship.
+      </p>
+
+
+      <!-- Optional Bivariate Image -->
+      <div class="project-content__image">
+        <img
+          src="../assets/images/arizona-bivariate-education.png"
+          alt="Bivariate spatial analysis of Democratic vote shifts and educational attainment in Arizona"
+        >
+      </div>
+
+
+      <!-- Importance -->
+      <h2>Why Spatial Statistics Mattered</h2>
+
+      <p>
+        One of the project's most important findings demonstrated the
+        difference between visual map comparison and formal spatial analysis.
+        The thematic maps appeared to show geographic overlap between
+        Democratic gains and areas with larger Hispanic populations.
+        However, Bivariate Moran's I revealed a negative spatial relationship.
+      </p>
+
+      <p>
+        This difference occurs because Bivariate Moran's I compares the value
+        of one variable within a precinct with the spatially lagged values of
+        another variable in neighboring precincts. The result demonstrates why
+        spatial statistics can reveal geographic relationships that are not
+        apparent through visual map comparison alone.
+      </p>
+
+
+      <!-- Key Findings -->
+      <h2>Key Findings</h2>
+
+      <ul>
+        <li>
+          <strong>Democratic Vote Shift — Moran's I: 0.405</strong><br>
+          Electoral change exhibited moderate geographic clustering.
+        </li>
+
+        <li>
+          <strong>Hispanic Population — Moran's I: 0.784</strong><br>
+          This variable exhibited the strongest univariate spatial
+          clustering in the analysis.
+        </li>
+
+        <li>
+          <strong>Educational Attainment — Moran's I: 0.750</strong><br>
+          Educational attainment demonstrated very strong geographic
+          clustering.
+        </li>
+
+        <li>
+          <strong>Education × Democratic Shift — Bivariate Moran's I:
+          +0.288</strong><br>
+          Educational attainment exhibited the strongest positive spatial
+          relationship with Democratic vote gains.
+        </li>
+      </ul>
+
+      <p>
+        Overall, the analysis demonstrates that Arizona's recent electoral
+        change has a clear geographic structure. Demographic characteristics
+        are themselves strongly clustered, but their relationships with
+        changes in Democratic support vary considerably across the state.
+      </p>
+
+
+      <!-- Skills -->
+      <div class="project-card__tags" style="margin-top: 3rem;">
+
+        <span class="project-card__tag">ArcGIS Pro</span>
+
+        <span class="project-card__tag">GeoDa</span>
+
+        <span class="project-card__tag">Spatial Autocorrelation</span>
+
+        <span class="project-card__tag">Global Moran's I</span>
+
+        <span class="project-card__tag">LISA</span>
+
+        <span class="project-card__tag">Bivariate Moran's I</span>
+
+        <span class="project-card__tag">Election Mapping</span>
+
+        <span class="project-card__tag">ACS Census Data</span>
+
+      </div>
+
+
+      <!-- Back Button -->
+      <div
+        style="
+          margin-top: 3rem;
+          padding-top: 2rem;
+          border-top: 1px solid var(--gray-200);
+        "
+      >
+
+        <a href="../projects.html" class="btn btn--secondary">
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+            style="transform: rotate(180deg);"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M17 8l4 4m0 0l-4 4m4-4H3"
+            />
+          </svg>
+
+          Back to Projects
+
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Simon Koppel. Built with purpose.</p>
+    </div>
+  </footer>
+
+
+  <script src="../script.js"></script>
+
+</body>
+</html>
